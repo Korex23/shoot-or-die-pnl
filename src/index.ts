@@ -148,6 +148,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/health", (_req, res) => {
+  res.json({ ok: true, uptime: Math.floor(process.uptime()), browser: browserPromise !== null });
+});
+
 app.options("/send-card", (_req, res) => { res.sendStatus(200); });
 
 app.post("/send-card", (req, res) => {

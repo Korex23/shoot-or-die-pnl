@@ -190,6 +190,6 @@ app.post("/send-card", (req, res) => {
     .catch((err) => log("send-card", "background task FAILED", err));
 });
 
-app.listen(PORT, () => {
-  log("server", `pnl-card-service listening on port ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  log("server", `pnl-card-service listening on 0.0.0.0:${PORT}`);
 });
